@@ -105,7 +105,7 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 aria-label={profile.fullName} className="font-display text-[15vw] font-extrabold uppercase leading-[0.84] tracking-[-0.04em] lg:text-[9.4vw] 2xl:text-[10rem]">
+          <h1 aria-label={profile.fullName} className="font-display text-[15vw] font-extrabold uppercase leading-[0.84] tracking-[-0.04em] lg:text-[8vw] xl:text-[9.2vw] 2xl:text-[10rem]">
             {nameLines.map((line) => (
               <span key={line.text} aria-hidden="true" className="block whitespace-nowrap">
                 {Array.from(line.text).map((c, i) => (
@@ -144,10 +144,10 @@ export default function Hero() {
       <div className="gutter relative z-10 pb-10">
         <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border hairline bg-chalk/[0.06] md:grid-cols-4">
           {stats.map((s) => (
-            <div key={s.label} data-stat className="bg-void/80 p-5 backdrop-blur-md sm:p-6">
+            <div key={s.label} data-stat className="min-w-0 bg-void/80 p-4 backdrop-blur-md sm:p-6">
               <dt className="sr-only">{s.label}</dt>
               <dd>
-                <span className="font-display text-[clamp(2.2rem,4.5vw,3.75rem)] font-extrabold leading-none">
+                <span className="font-display text-[clamp(1.8rem,4.5vw,3.75rem)] font-extrabold leading-none">
                   <span data-count={s.value}>{s.value}</span>
                   <span className="text-ember">{s.suffix}</span>
                 </span>

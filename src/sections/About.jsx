@@ -82,7 +82,7 @@ export default function About() {
         ))}
       </p>
 
-      <div className="mt-20 grid gap-10 lg:grid-cols-12">
+      <div className="mt-20 grid gap-10 lg:grid-cols-12 [&>*]:min-w-0">
         <div className="space-y-6 lg:col-span-5">
           {profile.about.map((p) => (
             <p key={p} data-rise className="text-lg leading-relaxed text-chalk/75">
@@ -106,11 +106,11 @@ export default function About() {
               <span className="h-3 w-3 rounded-full bg-[#28C840]" />
               <span className="ml-3 font-mono text-xs text-chalk-dim">kaif.config.js</span>
             </div>
-            <pre className="overflow-x-auto p-6 font-mono text-[0.8rem] leading-7 sm:text-[0.9rem]">
+            <pre className="overflow-x-auto whitespace-pre-wrap break-words p-4 font-mono text-[0.72rem] leading-6 sm:whitespace-pre sm:p-6 sm:text-[0.85rem] sm:leading-7 xl:text-[0.9rem]">
               <code>
                 {CODE.map((line, i) => (
-                  <span key={i} data-code-line className="block">
-                    <span className="mr-5 inline-block w-4 select-none text-right text-chalk-dim/40">{i + 1}</span>
+                  <span key={i} data-code-line className="block pl-9 -indent-9">
+                    <span className="mr-5 inline-block w-4 select-none indent-0 text-right text-chalk-dim/40">{i + 1}</span>
                     {line.map((tok, j) => (
                       <span key={j} className={tokenClass(tok)}>
                         {tok}

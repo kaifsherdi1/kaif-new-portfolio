@@ -11,6 +11,7 @@ import { useGsap } from '../hooks/useGsap'
 import { useMeta } from '../hooks/useMeta'
 import { projects, getProject } from '../data/projects'
 import NotFound from './NotFound'
+import { fitTitle } from '../animations/fit'
 
 const pad = (n) => String(n).padStart(2, '0')
 
@@ -63,7 +64,7 @@ function ProjectCase({ project }) {
           <span style={{ color: project.hue }}>{project.category}</span>
           <span>{project.year}</span>
         </div>
-        <h1 aria-label={project.title} className="font-display text-[clamp(2rem,7.4vw,8rem)] font-extrabold uppercase leading-[0.88] tracking-[-0.045em]">
+        <h1 aria-label={project.title} className="font-display font-extrabold uppercase leading-[0.88] tracking-[-0.045em]" style={{ fontSize: fitTitle(project.title, { max: '9rem' }) }}>
           {project.title.split(' ').map((word, w) => (
             <span key={w} aria-hidden="true" className="mr-[0.25em] inline-block whitespace-nowrap">
               {Array.from(word).map((c, i) => (
@@ -89,13 +90,20 @@ function ProjectCase({ project }) {
         </div>
       </div>
 
-      <div data-metrics className="gutter mt-10 grid grid-cols-3 gap-3">
+      <div data-metrics className="gutter mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
         {project.metrics.map((m) => (
-          <div key={m.label} data-metric className="rounded-2xl border hairline bg-void-800/70 p-5 sm:p-7">
-            <p className="font-display text-[clamp(1.6rem,4vw,3.5rem)] font-extrabold leading-none" style={{ color: project.hue }}>
+          <div
+            key={m.label}
+            data-metric
+            className="flex min-w-0 items-baseline justify-between gap-4 rounded-2xl border hairline bg-void-800/70 px-5 py-4 [container-type:inline-size] sm:block sm:p-6 lg:p-7"
+          >
+            <p
+              className="whitespace-nowrap font-display text-2xl font-extrabold leading-none sm:[font-size:var(--fit)]"
+              style={{ color: project.hue, '--fit': fitTitle(m.value, { max: '3.5rem', space: '100cqw', ratio: 1.2 }) }}
+            >
               {m.value}
             </p>
-            <p className="label mt-2 text-chalk-dim">{m.label}</p>
+            <p className="label text-right text-chalk-dim sm:mt-2 sm:text-left">{m.label}</p>
           </div>
         ))}
       </div>
@@ -160,7 +168,7 @@ function ProjectCase({ project }) {
         <TransitionLink to={`/work/${next.slug}`} data-cursor="Next" className="gutter group relative block overflow-hidden py-20 sm:py-28">
           <span aria-hidden="true" className="absolute inset-0 origin-bottom scale-y-0 transition-transform duration-700 ease-expo group-hover:scale-y-100" style={{ background: `${next.hue}14` }} />
           <span className="label relative mb-6 block text-chalk-dim">Next project — {pad(((index + 1) % projects.length) + 1)}</span>
-          <span className="relative flex items-center gap-[3vw] font-display text-[clamp(2rem,8.5vw,9rem)] font-extrabold uppercase leading-[0.85] tracking-[-0.045em]">
+          <span className="relative flex items-center gap-[3vw] font-display font-extrabold uppercase leading-[0.85] tracking-[-0.045em]" style={{ fontSize: fitTitle(next.title, { max: '9rem', extra: '12vw' }) }}>
             <span className="min-w-0 transition-transform duration-700 ease-expo group-hover:translate-x-[2vw]">{next.title}</span>
             <span aria-hidden="true" className="arrow-x inline-block text-ember">→</span>
           </span>

@@ -4,6 +4,8 @@
  * `hue` tints the card glow.
  */
 import letsshop from '../assets/letsshop.webp'
+import zidaan from '../assets/zidaan.webp'
+import imart from '../assets/imart.webp'
 
 export const projects = [
   {
@@ -42,6 +44,8 @@ export const projects = [
     year: '2026',
     hue: '#E7B36A',
     art: 'estate',
+    image: { src: zidaan, alt: 'The Zidaan Architectures homepage' },
+    live: 'https://zidaan-architecture.vercel.app/',
     repo: 'https://github.com/kaifsherdi1/zidaan-architecture',
     stack: ['React.js', 'Context API', 'Tailwind CSS', 'Laravel 10', 'MySQL', 'Redis', 'Recharts', 'GSAP'],
     summary:
@@ -61,13 +65,39 @@ export const projects = [
     ],
   },
   {
+    slug: 'business-websites',
+    title: 'Client Websites',
+    tagline: 'Responsive websites for real businesses',
+    category: 'Client work · Live',
+    year: '2024 — 2025',
+    hue: '#E2453C',
+    art: 'sites',
+    live: 'https://redfreshbharath.com/',
+    stack: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'GSAP'],
+    summary:
+      'Responsive, mobile-first websites and landing pages delivered for businesses in India and the UAE.',
+    metrics: [
+      { value: '10+', label: 'Websites shipped' },
+      { value: '5', label: 'Featured clients' },
+      { value: '100%', label: 'Responsive' },
+    ],
+    clients: ['Red Fresh Bharat', 'IR International Pvt Ltd', 'Naba Al Masarat United', 'Elite World Pro', 'Tawfiq Careers'],
+    points: [
+      'Live client sites for Red Fresh Bharat, IR International Pvt Ltd, Naba Al Masarat United, Elite World Pro and Tawfiq Careers.',
+      'Landing pages, reusable sections, forms and interactive UI components.',
+      'Clean, mobile-friendly layouts built with HTML, CSS, JavaScript and Bootstrap.',
+    ],
+  },
+  {
     slug: 'imart-saas',
     title: 'iMart SaaS',
     tagline: 'Multi-store e-commerce & ERP platform',
     category: 'SaaS · ERP',
     year: '2026',
-    hue: '#8B6CFF',
+    hue: '#D9643A',
     art: 'saas',
+    image: { src: imart, alt: 'The iMart multi-tenant marketplace homepage' },
+    live: 'https://imart-saas-application.vercel.app/',
     repo: 'https://github.com/kaifsherdi1/imart-saas-application',
     extraRepo: { label: 'API source', href: 'https://github.com/kaifsherdi1/ibackend' },
     stack: ['Next.js', 'TypeScript', 'Redux Toolkit', 'Laravel 12', 'Spatie RBAC', 'Razorpay', 'Tailwind 4', 'Lenis'],
@@ -111,131 +141,6 @@ export const projects = [
       'GitHub Actions deploy pipeline with PM2, Render and Vercel configs.',
       'Next.js 15 + React 19 frontend with React Query, GSAP and Framer Motion — restaurants, search, cart and auth.',
     ],
-  },
-  {
-    slug: 'syncup',
-    title: 'SyncUp',
-    tagline: 'Real-time coaching broadcast feed',
-    category: 'Realtime · Full stack',
-    year: '2026',
-    hue: '#3DF5B5',
-    art: 'feed',
-    repo: 'https://github.com/kaifsherdi1/sync-up-task',
-    stack: ['Next.js', 'TypeScript', 'Socket.IO', 'Node.js', 'MongoDB', 'Redis', 'Tailwind CSS'],
-    summary:
-      'An admin console broadcasts updates to every connected user in real time, with a Redis cache that degrades gracefully and an optimistic UI.',
-    metrics: [
-      { value: 'Live', label: 'Socket.IO' },
-      { value: '300s', label: 'Redis TTL' },
-      { value: 'Optimistic', label: 'UI states' },
-    ],
-    points: [
-      'Socket.IO broadcast from the admin console to all connected users.',
-      'Redis cache with a 300-second TTL that falls back to MongoDB when Redis is down, invalidated on every insert.',
-      'Optimistic UI with Sending / Success / Failed states that restores the input if a send fails.',
-      'express-validator input checks and a rate limiter on the API.',
-      'A live badge shows whether each response was served from cache or the database.',
-    ],
-  },
-  {
-    slug: 'apka-finance',
-    title: 'ApkaFinance',
-    tagline: 'Loan management system',
-    category: 'FinTech · Full stack',
-    year: '2026',
-    hue: '#5CA8FF',
-    art: 'finance',
-    repo: 'https://github.com/kaifsherdi1/apka-finance-application',
-    stack: ['React 18', 'TypeScript', 'React Query', 'Zod', 'Laravel', 'Recharts', 'Tailwind CSS'],
-    summary:
-      'A role-based lending platform for loan applications, EMI schedules, KYC documents, credit scores and accounts.',
-    metrics: [
-      { value: '4', label: 'Dashboards' },
-      { value: 'EMI', label: 'Schedules' },
-      { value: 'KYC', label: 'Documents' },
-    ],
-    points: [
-      'Separate dashboards for Admin, Manager (approvals), Accountant (due today / overdue) and User (apply, loans, account).',
-      'Loan, EMI schedule, KYC document, credit score, account and transaction models on a Laravel API.',
-      'Forms validated with React Hook Form and Zod; server state with React Query.',
-      'PDF and Excel exports with jsPDF and xlsx; Recharts analytics and Framer Motion transitions.',
-    ],
-  },
-  {
-    slug: 'financeflow-ai',
-    title: 'FinanceFlow',
-    tagline: 'Personal finance analytics dashboard',
-    category: 'Frontend · Dashboard',
-    year: '2026',
-    hue: '#FF7AC6',
-    art: 'dashboard',
-    repo: 'https://github.com/kaifsherdi1/finance-dashboard-task',
-    stack: ['React 19', 'TypeScript', 'Zustand', 'React Router 7', 'Tailwind 4', 'Recharts', 'Framer Motion'],
-    summary:
-      'A single-page finance dashboard with analytics, investing and cards views, user roles and an exportable transaction ledger.',
-    metrics: [
-      { value: 'SPA', label: 'React 19' },
-      { value: 'CSV', label: 'Exports' },
-      { value: 'Dark', label: 'Mode' },
-    ],
-    points: [
-      'Analytics, investing and cards pages with Recharts visualisations.',
-      'User registry with role assignment.',
-      'Filterable, sortable and exportable transactions table.',
-      'Zustand store persisted locally, dark mode and Framer Motion page transitions.',
-    ],
-  },
-  {
-    slug: 'business-websites',
-    title: 'Client Websites',
-    tagline: 'Responsive websites for real businesses',
-    category: 'Client work · Live',
-    year: '2024 — 2025',
-    hue: '#E2453C',
-    art: 'sites',
-    live: 'https://redfreshbharath.com/',
-    stack: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'GSAP'],
-    summary:
-      'Responsive, mobile-first websites and landing pages delivered for businesses in India and the UAE.',
-    metrics: [
-      { value: '10+', label: 'Websites shipped' },
-      { value: '5', label: 'Featured clients' },
-      { value: '100%', label: 'Responsive' },
-    ],
-    clients: ['Red Fresh Bharat', 'IR International Pvt Ltd', 'Naba Al Masarat United', 'Elite World Pro', 'Tawfiq Careers'],
-    points: [
-      'Live client sites for Red Fresh Bharat, IR International Pvt Ltd, Naba Al Masarat United, Elite World Pro and Tawfiq Careers.',
-      'Landing pages, reusable sections, forms and interactive UI components.',
-      'Clean, mobile-friendly layouts built with HTML, CSS, JavaScript and Bootstrap.',
-    ],
-  },
-]
-
-/** Smaller builds, listed under the main showcase. */
-export const moreProjects = [
-  {
-    title: 'AI Fitness Coach',
-    desc: 'AI-generated workout and diet plans from user metrics, with text-to-speech, generated images and PDF export.',
-    stack: ['Next.js', 'TypeScript', 'LLM APIs'],
-    href: 'https://github.com/kaifsherdi1/fitness_coach_app',
-  },
-  {
-    title: 'Dynamic Data Table Manager',
-    desc: 'Search, sort, paginate, add or hide columns, inline edit, and CSV import / export with validation.',
-    stack: ['Next.js 14', 'Redux Toolkit', 'MUI'],
-    href: 'https://github.com/kaifsherdi1/dynamic_datatable_manager',
-  },
-  {
-    title: 'Shoes E-commerce',
-    desc: 'Laravel Sanctum API for products, cart and orders with Admin / Customer roles, plus a React storefront.',
-    stack: ['Laravel', 'React', 'Vite'],
-    href: 'https://github.com/kaifsherdi1/shoes_ecommerce_backend',
-  },
-  {
-    title: 'Flutter Login Flow',
-    desc: 'Splash screen, real-time validation and fade / scale animations built with Flutter’s own libraries.',
-    stack: ['Flutter', 'Dart'],
-    href: 'https://github.com/kaifsherdi1/healthetic-flutter-login-assignment-kaifsherdi',
   },
 ]
 

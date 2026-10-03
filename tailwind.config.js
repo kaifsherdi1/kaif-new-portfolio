@@ -27,8 +27,8 @@ export default {
       },
       fontSize: {
         mega: ['clamp(3.4rem, 12.5vw, 15rem)', { lineHeight: '0.84', letterSpacing: '-0.04em' }],
-        giant: ['clamp(2.8rem, 8.5vw, 9.5rem)', { lineHeight: '0.88', letterSpacing: '-0.035em' }],
-        huge: ['clamp(2.2rem, 5.6vw, 6rem)', { lineHeight: '0.92', letterSpacing: '-0.03em' }],
+        giant: ['clamp(2rem, 9vw, 9rem)', { lineHeight: '0.88', letterSpacing: '-0.035em' }],
+        huge: ['clamp(1.9rem, 5.6vw, 6rem)', { lineHeight: '0.92', letterSpacing: '-0.03em' }],
         big: ['clamp(1.5rem, 3vw, 2.75rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
         label: ['0.72rem', { lineHeight: '1.2', letterSpacing: '0.16em' }],
       },

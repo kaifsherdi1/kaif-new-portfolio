@@ -149,10 +149,25 @@ export default function HeroScene({ className = '' }) {
       renderer.setSize(w, h, false)
       camera.aspect = w / h
       camera.updateProjectionMatrix()
-      const wide = w / h > 1.1
-      group.position.x = wide ? 2.75 : 0
-      group.position.y = wide ? -0.1 : -1.25
-      group.scale.setScalar(wide ? 0.82 : 0.6)
+      // The canvas covers the whole hero, which can be taller than the screen,
+      // so place the core in screen pixels: behind the badge column on the
+      // two-column (lg) layout, low and centred on the stacked layout.
+      // Visible half-height at z=0 is tan(fov/2) * distance ≈ 2.88 units.
+      const HALF = 2.88
+      const unitsPerPx = (HALF * 2) / h
+      if (window.matchMedia('(min-width: 1024px)').matches) {
+        const vh = window.innerHeight
+        const badgeX = w * 0.79 // centre of the badge column
+        const badgeY = Math.min(vh * 0.55, h * 0.5)
+        group.position.x = (badgeX - w / 2) * unitsPerPx
+        group.position.y = (h / 2 - badgeY) * unitsPerPx
+        const shellPx = Math.min(w * 0.2, vh * 0.42) // outer shell radius on screen
+        group.scale.setScalar(shellPx / (2.35 / unitsPerPx))
+      } else {
+        group.position.x = 0
+        group.position.y = -1.25
+        group.scale.setScalar(0.6)
+      }
     }
     resize()
     const ro = new ResizeObserver(resize)

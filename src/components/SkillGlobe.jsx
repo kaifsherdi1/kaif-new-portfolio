@@ -110,7 +110,7 @@ export default function SkillGlobe({ words }) {
           key={w}
           ref={(n) => (items.current[i] = n)}
           aria-hidden="true"
-          className="absolute left-1/2 top-1/2 whitespace-nowrap font-display text-[clamp(0.85rem,1.6vw,1.25rem)] font-bold uppercase text-chalk will-change-transform"
+          className="absolute left-1/2 top-1/2 whitespace-nowrap font-display text-[clamp(0.68rem,1.6vw,1.25rem)] font-bold uppercase text-chalk will-change-transform"
         >
           {w}
         </span>

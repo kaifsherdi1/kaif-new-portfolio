@@ -27,7 +27,8 @@ export default function Footer() {
       </div>
       <p
         aria-hidden="true"
-        className="pointer-events-none mt-6 select-none whitespace-nowrap text-center font-display text-[18.5vw] font-extrabold uppercase leading-[0.75] tracking-[-0.05em] text-transparent [-webkit-text-stroke:1px_rgba(244,241,234,0.12)]"
+        className="pointer-events-none mt-6 select-none whitespace-nowrap pb-2 text-center font-display font-extrabold uppercase leading-[0.8] tracking-[-0.05em] text-transparent [-webkit-text-stroke:1px_rgba(244,241,234,0.14)]"
+        style={{ fontSize: 'calc((100vw - 2 * var(--gutter)) / 11.2)' }}
       >
         Kaif Sherdi
       </p>

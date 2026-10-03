@@ -5,6 +5,7 @@ import { lockScroll, scrollTo } from '../animations/scroll'
 import { useIsoLayoutEffect } from '../hooks/useGsap'
 import { useExperience } from '../context/ExperienceContext'
 import { getProject } from '../data/projects'
+import { fitTitle } from '../animations/fit'
 
 const TransitionContext = createContext(null)
 
@@ -110,7 +111,7 @@ export function PageTransitionProvider({ children }) {
         <div ref={accent} className="absolute inset-0 bg-gradient-to-br from-ember to-ion" />
         <div ref={panel} className="absolute inset-0 grid place-items-center bg-void">
           <span className="mask">
-            <span ref={title} className="block px-4 text-center font-display text-[clamp(2rem,6.2vw,6.5rem)] font-extrabold uppercase leading-[0.9]">
+            <span ref={title} className="block px-4 text-center font-display font-extrabold uppercase leading-[0.9]" style={{ fontSize: fitTitle(heading + '.', { max: '7rem', extra: '2rem' }) }}>
               {heading}
               <span className="text-ember">.</span>
             </span>

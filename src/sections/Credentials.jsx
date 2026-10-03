@@ -4,6 +4,7 @@ import { revealSplit, rise } from '../animations/scroll'
 import { useGsap } from '../hooks/useGsap'
 import SplitText from '../components/SplitText'
 import { certifications, achievements, education } from '../data/credentials'
+import { fitTitle } from '../animations/fit'
 
 /** Certificate card that flips over in 3D on hover / focus / tap. */
 function CertCard({ cert, index }) {
@@ -35,11 +36,13 @@ function CertCard({ cert, index }) {
             <span className="chip">{cert.kind}</span>
             <span className="font-display text-4xl font-extrabold text-chalk/10">0{index + 1}</span>
           </div>
-          <div className="relative">
+          <div className="relative [container-type:inline-size]">
             <span aria-hidden="true" className="mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-ember to-ion text-2xl text-void">
               ✦
             </span>
-            <h3 className="font-display text-2xl font-extrabold uppercase leading-tight">{cert.name}</h3>
+            <h3 className="font-display font-extrabold uppercase leading-tight" style={{ fontSize: fitTitle(cert.name, { max: '1.5rem', space: '100cqw', ratio: 1.3 }) }}>
+              {cert.name}
+            </h3>
             <p className="mt-2 font-mono text-xs uppercase tracking-[0.14em] text-ember">{cert.issuer}</p>
           </div>
         </div>
@@ -88,7 +91,7 @@ export default function Credentials() {
         <SplitText text="Proof of learning" />
       </h2>
 
-      <div data-certs className="grid gap-5 md:grid-cols-3">
+      <div data-certs className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 sm:[&>*:last-child]:col-span-2 lg:[&>*:last-child]:col-span-1">
         {certifications.map((c, i) => (
           <CertCard key={c.name} cert={c} index={i} />
         ))}
@@ -100,7 +103,7 @@ export default function Credentials() {
           <ul className="border-t hairline">
             {achievements.map((a) => (
               <li key={a.label} data-ach className="flex items-baseline gap-6 border-b hairline py-6">
-                <span className="w-32 shrink-0 font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-none text-gradient">{a.value}</span>
+                <span className="min-w-[6.5rem] shrink-0 whitespace-nowrap font-display text-[clamp(1.75rem,3vw,2.6rem)] font-extrabold leading-none text-gradient sm:min-w-[9.5rem]">{a.value}</span>
                 <span className="text-chalk/80">{a.label}</span>
               </li>
             ))}

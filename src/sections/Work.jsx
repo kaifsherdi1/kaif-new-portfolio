@@ -6,8 +6,9 @@ import SplitText from '../components/SplitText'
 import TiltCard from '../components/TiltCard'
 import ProjectVisual from '../components/ProjectVisual'
 import { TransitionLink } from '../components/PageTransition'
-import { projects, moreProjects } from '../data/projects'
+import { projects } from '../data/projects'
 import { profile } from '../data/profile'
+import { fitTitle } from '../animations/fit'
 
 const pad = (n) => String(n).padStart(2, '0')
 
@@ -32,11 +33,13 @@ function ProjectCard({ project, index }) {
             </span>
           )}
         </div>
-        <div className="flex flex-1 flex-col p-6 sm:p-7">
+        <div className="flex flex-1 flex-col p-6 [container-type:inline-size] sm:p-7">
           <p className="label text-chalk-dim" style={{ color: project.hue }}>
             {project.category}
           </p>
-          <h3 className="mt-3 font-display text-[clamp(1.7rem,2.6vw,2.4rem)] font-extrabold uppercase leading-none">{project.title}</h3>
+          <h3 className="mt-3 font-display font-extrabold uppercase leading-none" style={{ fontSize: fitTitle(project.title, { max: '2.4rem', space: '100cqw' }) }}>
+            {project.title}
+          </h3>
           <p className="mt-2 text-chalk/70">{project.tagline}</p>
           <ul className="mt-5 flex flex-wrap gap-1.5">
             {project.stack.slice(0, 4).map((s) => (
@@ -69,7 +72,6 @@ export default function Work() {
     () => {
       const q = gsap.utils.selector(root)
       revealSplit(q('[data-title] [data-split]'), root.current, { stagger: 0.06 })
-      rise(q('[data-more]'), q('[data-more-wrap]')[0], { stagger: 0.08 })
 
       const mm = gsap.matchMedia()
       mm.add(`${MEDIA.desktop} and (prefers-reduced-motion: no-preference)`, () => {
@@ -126,11 +128,11 @@ export default function Work() {
         >
           <div className="flex shrink-0 flex-col justify-center lg:w-[36vw] lg:pr-8">
             <p className="section-index mb-5">03 — Selected work</p>
-            <h2 data-title className="font-display text-giant font-extrabold uppercase">
+            <h2 data-title className="font-display text-giant font-extrabold uppercase lg:text-[5vw] lg:leading-[0.9]">
               <SplitText text="Things I've built" />
             </h2>
             <p className="mt-6 max-w-md text-lg leading-relaxed text-chalk/70">
-              Multi-vendor commerce, real estate, SaaS ERP, microservices, real-time feeds and fintech — production systems built
+              Multi-vendor commerce, real estate, a SaaS ERP, a microservices platform and live websites for real clients — built
               end to end.
             </p>
             <p className="label mt-8 hidden items-center gap-3 text-chalk-dim lg:flex">
@@ -161,35 +163,6 @@ export default function Work() {
         <div className="absolute inset-x-[var(--gutter)] bottom-8 hidden h-px bg-chalk/10 lg:block">
           <div data-progress className="h-full origin-left scale-x-0 bg-gradient-to-r from-ember to-ion" />
         </div>
-      </div>
-
-      <div data-more-wrap className="gutter pb-10 pt-20 lg:pt-28">
-        <p className="label mb-6 text-chalk-dim">More from the lab</p>
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {moreProjects.map((m) => (
-            <li key={m.title} data-more>
-              <a
-                href={m.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group flex h-full flex-col rounded-2xl border hairline bg-void-800/60 p-6 transition-colors duration-500 hover:border-ember/50 hover:bg-void-800"
-              >
-                <span className="flex items-start justify-between gap-4">
-                  <span className="font-display text-xl font-bold uppercase leading-tight">{m.title}</span>
-                  <span className="text-chalk-dim transition-all duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-ember">↗</span>
-                </span>
-                <span className="mt-3 text-sm leading-relaxed text-chalk/65">{m.desc}</span>
-                <span className="mt-auto flex flex-wrap gap-1.5 pt-5">
-                  {m.stack.map((s) => (
-                    <span key={s} className="chip !py-1 !text-[0.58rem]">
-                      {s}
-                    </span>
-                  ))}
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
       </div>
     </section>
   )

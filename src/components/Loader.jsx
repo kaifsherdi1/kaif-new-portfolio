@@ -109,7 +109,8 @@ export default function Loader({ onDone }) {
                 <span className="inline-block">{profile.fullName}</span>
               </span>
             </p>
-            <p className="font-display text-[clamp(5rem,22vw,18rem)] font-extrabold leading-[0.8] tracking-[-0.05em]">
+            {/* "100%" is ~3.8em wide: full width on phones, half the page beside the log on desktop */}
+            <p className="whitespace-nowrap font-display text-[21vw] font-extrabold leading-[0.8] tracking-[-0.05em] lg:text-[min(10.5vw,18rem)]">
               <span data-num>000</span>
               <span className="text-ember">%</span>
             </p>

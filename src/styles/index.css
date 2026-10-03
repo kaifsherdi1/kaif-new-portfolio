@@ -267,3 +267,14 @@ html,
 body {
   overflow-x: clip;
 }
+
+/* very large screens: scale the rem base so type, cards and the badge grow with the canvas */
+@media (min-width: 1800px) {
+  html { font-size: 17px; }
+}
+@media (min-width: 2200px) {
+  html { font-size: 19px; }
+}
+@media (min-width: 2500px) {
+  html { font-size: 21px; }
+}

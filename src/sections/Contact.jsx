@@ -19,9 +19,12 @@ function Magnetic({ children, href }) {
     <a
       ref={el}
       href={href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Message Kaif on WhatsApp (opens in a new tab)"
       onPointerMove={move}
       onPointerLeave={leave}
-      data-cursor="Say hi"
+      data-cursor="WhatsApp"
       className="group relative grid h-44 w-44 shrink-0 place-items-center overflow-hidden rounded-full bg-ember text-void sm:h-56 sm:w-56"
     >
       <span className="absolute inset-0 translate-y-full rounded-full bg-chalk transition-transform duration-700 ease-expo group-hover:translate-y-0" />
@@ -92,20 +95,20 @@ export default function Contact() {
             </div>
           </div>
           <div data-rise>
-            <Magnetic href={`mailto:${profile.email}`}>Get in touch</Magnetic>
+            <Magnetic href={`${profile.whatsapp}?text=${encodeURIComponent("Hi Kaif, I saw your portfolio and would like to connect.")}`}>Get in touch</Magnetic>
           </div>
         </div>
 
-        <ul data-rise className="mt-20 grid grid-cols-2 border-t hairline sm:grid-cols-4">
+        <ul data-rise className="mt-20 grid grid-cols-1 border-t hairline min-[420px]:grid-cols-2 lg:grid-cols-4">
           {socials.map((s) => (
-            <li key={s.label} className="border-b hairline sm:border-b-0 sm:border-r last:border-r-0">
+            <li key={s.label} className="border-b hairline lg:border-b-0 lg:border-r lg:last:border-r-0">
               <a
                 href={s.href}
                 target={s.href.startsWith('http') ? '_blank' : undefined}
                 rel="noreferrer"
-                className="group flex items-center justify-between px-1 py-6 sm:px-6"
+                className="group flex items-center justify-between gap-3 px-1 py-5 sm:px-6 sm:py-6"
               >
-                <span className="font-display text-xl font-bold uppercase transition-colors group-hover:text-ember">{s.label}</span>
+                <span className="font-display text-lg font-bold uppercase transition-colors group-hover:text-ember sm:text-xl">{s.label}</span>
                 <span className="text-chalk-dim transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-ember">
                   ↗
                 </span>
