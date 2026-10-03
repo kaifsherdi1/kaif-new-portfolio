@@ -1,0 +1,8 @@
+node_modules
+dist
+*.log
+.DS_Store
+
+# raw source material (optimised copies live in src/assets and public/resume)
+/kaif-passport-size-img.png
+/KaifSherdi-*.pdf
