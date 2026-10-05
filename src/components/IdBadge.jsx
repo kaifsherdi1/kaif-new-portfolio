@@ -98,7 +98,7 @@ export default function IdBadge() {
               <div className="relative mx-5 mt-3 aspect-[4/4.3] overflow-hidden rounded-2xl bg-white">
                 <picture>
                   <source srcSet={photo} type="image/webp" />
-                  <img src={photoJpg} alt={`Portrait of ${profile.fullName}`} className="h-full w-full scale-[1.32] object-cover object-[50%_32%]" width="760" height="1013" />
+                  <img src={photoJpg} alt={`Portrait of ${profile.fullName}`} className="h-full w-full object-cover object-[50%_18%]" width="760" height="1013" />
                 </picture>
                 <span className="absolute left-2 top-2 rounded-full bg-void px-2 py-1 font-mono text-[0.5rem] uppercase tracking-[0.18em] text-chalk">
                   ID · KAS-2024
